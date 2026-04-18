@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free AI Course for Students</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <style>
+        body { background-color: #f0f0f0; font-family: Arial, sans-serif; }
+        .container { max-width: 800px; margin: 40px auto; padding: 20px; background-color: #fff; border: 1px solid #ddd; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .header { background-color: #333; color: #fff; padding: 10px; text-align: center; }
+        .header h1 { margin: 0; }
+        .content { padding: 20px; }
+        .form-group { margin-bottom: 20px; }
+        .form-control { width: 100%; height: 40px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+        .btn { width: 100%; height: 40px; background-color: #4CAF50; color: #fff; padding: 10px; border: none; border-radius: 5px; cursor: pointer; }
+        .btn:hover { background-color: #3e8e41; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Free AI Course for Students</h1>
+        </div>
+        <div class="content">
+            <h2>Join our free AI course!</h2>
+            <p>Our course covers AI, machine learning, and deep learning — designed specifically for students.</p>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category:</label>
+                    <select id="category" name="category" class="form-control" required>
+                        <option value="">Select a category</option>
+                        <option value="student">Student</option>
+                        <option value="professional">Professional</option>
+                        <option value="business">Business Owner</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Register Now</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        const form = document.getElementById('register-form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const jsonData = Object.fromEntries(formData.entries());
+            fetch('https://broken-primarily-dairy.ngrok-free.dev/webhook/06c3da8d-f2e9-4b4d-857c-1947dc57ecfb', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(jsonData)
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error(error));
+        });
+    </script>
+</body>
+</html>
